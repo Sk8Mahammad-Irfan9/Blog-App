@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Post from "../component/Post";
 
 const HomePage = () => {
-  document.title="All blogs"
+  document.title = "All blogs";
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const HomePage = () => {
       {posts.length > 0 ? (
         posts.map((post) => <Post {...post} key={post.id} post={post} />)
       ) : (
-        <p>No posts available</p>
+        <p>Loading...!</p>
       )}
     </>
   );
