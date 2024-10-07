@@ -26,7 +26,7 @@ const HomePage = () => {
       {posts.length > 0 ? (
         posts.map((post) => <Post {...post} key={post.id} post={post} />)
       ) : (
-        <p>Loading...!</p>
+        <p>No Posts!!</p>
       )}
     </>
   );

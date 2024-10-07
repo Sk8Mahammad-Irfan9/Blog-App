@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Register from "./pages/auth/Register";
@@ -9,7 +8,7 @@ import CreateBlog from "./pages/CreateBlog";
 import { UserContextProvider } from "./UserContext";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

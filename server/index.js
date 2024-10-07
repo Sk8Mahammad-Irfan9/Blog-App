@@ -8,6 +8,7 @@ const postRoutes = require("./router/postRoutes");
 
 app.use(express.json());
 app.use(cors());
+PORT = process.env.PORT || 5000;
 
 connectDB();
 
@@ -19,6 +20,6 @@ app.get("/", (req, res) => {
   res.send("hello here");
 });
 
-app.listen(4000, () => {
-  console.log("Server is running");
+app.listen(PORT, () => {
+  console.log(`Server is running ${PORT}`);
 });

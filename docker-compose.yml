@@ -1,0 +1,47 @@
+name: blog-app
+
+services:
+  mongo:
+    image: mongo:7.0.12
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - blog-app
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./server/.env
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - blog-app
+    ports:
+      - 5000:5000
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./client/.env
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - blog-app
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+
+volumes:
+  mongo_data:
+networks:
+  blog-app:
+    driver: bridge
